@@ -1,1 +1,0 @@
-onst n = req.query.n;
