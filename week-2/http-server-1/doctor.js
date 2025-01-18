@@ -16,7 +16,7 @@ app.get("/",function(req,res){
   
     const n = req.query.n;
     let ans = sumtilln(n);
-    res.send("Sum of N Numbers is :"+ans);
+    res.send("Sum of N Numbers is : "+ans);
 
 })
 
