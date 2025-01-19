@@ -1,0 +1,7 @@
+MongoDBURL - Week 3
+
+mongodb+srv://ganeshpuppala:<db_password>@cluster0.ga8zi.mongodb.net/
+
+PostGres
+
+postgresql://test_owner:7CobqYj4RgLl@ep-broad-frog-a5pb5xxy.us-east-2.aws.neon.tech/test?sslmode=require
