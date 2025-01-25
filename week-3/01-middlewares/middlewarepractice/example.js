@@ -1,14 +1,31 @@
 const express = require('express');
-
+const zod = require('zod');
 const app = express();
+
 
 app.use(express.json());
 
+schema = zod.object({
+    email: zod.string(),
+    password: zod.string(),
+    country: zod.literal("IN").or(zod.literal("US")),
+    Kidneys: zod.array(zod.number())
+})
+
 app.post("/health-checkup", function(req,res){
     const Kidneys = req.body.Kidneys;
-    const kidneyLength = Kidneys.length;
-
-    res.send("You have " + kidneyLength +  " kidneys")
+    const response = schema.safeParse(Kidneys);
+    if(!response.success)
+    {
+        res.status(411).json({
+            msg:"Input is Inalid"
+        })
+    }
+    else{
+        res.status(200).send({
+            response
+        })
+    }
 })
 
 // global catches
