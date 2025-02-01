@@ -7,6 +7,7 @@ function findSum(n) {
 }
 
 
+// Asynchronous Call
 function CallFindSum1000() {
   let ans = findSum(1000);
   console.log(ans);
