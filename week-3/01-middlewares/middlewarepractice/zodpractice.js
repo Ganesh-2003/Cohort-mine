@@ -25,3 +25,21 @@ app.post("/health-checkup" ,function(req,res){
 });
 
 app.listen(3000);
+
+
+function validateinput(obj)
+{
+    const schema = zod.object({
+        email: zod.string().email(),
+        password: zod.string().min(8)
+    })
+
+    const response = schema.safeParse(obj);
+
+    console.log(response);
+}
+
+validateinput({
+    email: "ganeshvsp12@gmail.com",
+    password: "Ganesh2003"
+})
