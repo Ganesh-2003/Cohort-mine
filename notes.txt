@@ -1,6 +1,6 @@
 MongoDBURL - Week 3
 
-mongodb+srv://ganeshpuppala:<db_password>@cluster0.ga8zi.mongodb.net/
+mongodb+srv://ganeshpuppala:Ganesh2003@cluster0.ga8zi.mongodb.net/
 
 PostGres
 
