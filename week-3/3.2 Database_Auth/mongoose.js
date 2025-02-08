@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://ganeshpuppala:Ganesh2003@cluster0.ga8zi.mongodb.net/");
 
 const User = mongoose.model('users',{name: String, email: String, password: String});
-
+console.log(User);
 app.use(express.json());
 
 app.post("/signin", async function(req, res) {
@@ -17,7 +17,7 @@ app.post("/signin", async function(req, res) {
     const name = req.body.name;
 
     const existingUser = await User.findOne({email: username});
-
+    console.log(existingUser);
     if(existingUser)
     {
         return res.status(400).json({
