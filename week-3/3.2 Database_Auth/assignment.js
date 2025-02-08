@@ -3,22 +3,24 @@ const jwt = require("jsonwebtoken");
 const jwtPassword = "123456";
 
 const app = express();
+app.use(express.json());
+
 
 const ALL_USERS = [
   {
-    username: "harkirat@gmail.com",
+    username: "ganesh@gmail.com",
     password: "123",
-    name: "harkirat singh",
+    name: "Ganesh Puppala",
   },
   {
-    username: "raman@gmail.com",
+    username: "Charan@gmail.com",
     password: "123321",
-    name: "Raman singh",
+    name: "Charan Puppala",
   },
   {
-    username: "priya@gmail.com",
+    username: "Nagi@gmail.com",
     password: "123321",
-    name: "Priya kumari",
+    name: "Nagi Puppala",
   },
 ];
 
