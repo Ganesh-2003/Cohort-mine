@@ -26,7 +26,7 @@ app.get('/errorCount', function(req, res) {
 app.use(function(err,req,res,next){
   errorCount = errorCount+1;
   res.status(404).send({
-    msg: "Error has occurred"
+    ErrorCount: errorCount
   })
 })
 
