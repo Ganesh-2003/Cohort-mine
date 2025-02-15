@@ -44,9 +44,9 @@
 
 <body>
     <label>First Number:</label>
-    <input type="text" id="firstNum"> 
+    <input oninput="ondeboucePopulate()" type="text" id="firstNum"> 
     <label>Second Number</label>
-    <input type="text" id="secondNum">
+    <input oninput="ondeboucePopulate()" type="text" id="secondNum">
 
     <button onclick="calculateSum()" type="submit" value="submit">Calculate Sum</button>
     <p id="sumValue"></p>
