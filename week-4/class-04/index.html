@@ -7,6 +7,16 @@
 </head>
 
 <script>
+
+    function debouncePopulateDiv()
+    {
+        clearTimeout(timeout);
+        const timeout = setTimeout(function(){
+            calculateSum();
+        }, 100);
+    }
+
+
     function calculateSum()
     {
         let firstNum  = document.getElementById("firstNum").value;
@@ -44,9 +54,9 @@
 
 <body>
     <label>First Number:</label>
-    <input oninput="ondeboucePopulate()" type="text" id="firstNum"> 
+    <input oninput="debouncePopulateDiv()" type="text" id="firstNum"> 
     <label>Second Number</label>
-    <input oninput="ondeboucePopulate()" type="text" id="secondNum">
+    <input oninput="debouncePopulateDiv()" type="text" id="secondNum">
 
     <button onclick="calculateSum()" type="submit" value="submit">Calculate Sum</button>
     <p id="sumValue"></p>
