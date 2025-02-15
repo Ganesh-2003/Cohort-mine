@@ -25,6 +25,23 @@
     }
 </script>
 
+<script>
+    async function calculateSum()
+    {
+        let firstNum  = document.getElementById("firstNum").value;
+        let secondNum = document.getElementById("secondNum").value;
+
+        firstNum = Number(firstNum);
+        secondNum = Number(secondNum);
+
+        const response = await fetch("https://sum-server.100xdevs.com/sum?a="+firstNum +"&b="+secondNum)
+        const ans = await response.text();
+
+        document.getElementById("sumValue").innerHTML = ans;
+    }
+</script>
+
+
 <body>
     <label>First Number:</label>
     <input type="text" id="firstNum"> 
