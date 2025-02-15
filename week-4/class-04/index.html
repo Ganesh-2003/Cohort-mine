@@ -12,8 +12,13 @@
         let FirstNum = document.getElementById("firstNum").value;
         let SecondNum = document.getElementById("secondNum").value;
 
-        let sum = parseInt(FirstNum) + parseInt(SecondNum);
-        document.getElementById("sumValue").innerText = sum;
+        fetch("https://sum-server.100xdevs.com/sum?a=" + FirstNum +"&b=" + SecondNum)
+            .then(function(response){
+                response.text()     
+                    .then(function(ans){
+                        document.getElementById("sumValue").innerHTML = ans;
+                    })
+            })
     }
 </script>
 
