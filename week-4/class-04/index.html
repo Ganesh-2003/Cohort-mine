@@ -9,10 +9,13 @@
 <script>
     function calculateSum()
     {
-        let FirstNum  = document.getElementById("firstNum").value;
-        let SecondNum = document.getElementById("secondNum").value;
+        let firstNum  = document.getElementById("firstNum").value;
+        let secondNum = document.getElementById("secondNum").value;
 
-        fetch("https://sum-server.100xdevs.com/sum?a="+FirstNum +"&b="+SecondNum)
+        firstNum = Number(firstNum);
+        secondNum = Number(secondNum);
+
+        fetch("https://sum-server.100xdevs.com/sum?a="+firstNum +"&b="+secondNum)
             .then(function(response){
                 response.text()     
                     .then(function(ans){
