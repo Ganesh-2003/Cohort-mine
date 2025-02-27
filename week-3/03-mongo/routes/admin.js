@@ -31,7 +31,7 @@ router.post('/signup', (req, res) => {
                 password: password
             }).then(function(value){
                 res.status(200).json({
-                    msg: "User Created Successfully"
+                    msg: "Admin Created Successfully"
                 })
             })
         }

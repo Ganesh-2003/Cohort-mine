@@ -16,7 +16,7 @@ function userMiddleware(req, res, next) {
     }
     else{
         res.status(404).json({
-            msg: "You are not authenticated";
+            msg: "You are not authenticated"
         })
     }
 
