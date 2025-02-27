@@ -47,7 +47,8 @@ function verifyJwt(token) {
     let ans = true;
 
     try{
-        jwt.verify(token,jwtPassword);
+       const response = jwt.verify(token,jwtPassword);
+       console.log(response);
     }
     catch(e){
         ans = false;
