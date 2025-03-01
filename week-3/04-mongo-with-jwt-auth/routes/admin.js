@@ -2,8 +2,8 @@ const { Router } = require("express");
 const adminMiddleware = require("../middleware/admin");
 const router = Router();
 const jwt = require("jsonwebtoken");
-const JWT_secret = require("..");
-const { Admin } = require("../db")
+const { JWT_secret } = require("../config");
+const { Admin, Course } = require("../db");
 
 // Admin Routes
 router.post('/signup', (req, res) => {
@@ -50,6 +50,8 @@ router.post('/signin', async (req, res) => {
         password: password
     })
 
+    console.log(isValidated);
+    
     if(isValidated)
     {
         const jwtToken = jwt.sign({username},JWT_secret);
@@ -65,12 +67,37 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-router.post('/courses', adminMiddleware, (req, res) => {
+router.post('/courses', adminMiddleware, async (req, res) => {
     // Implement course creation logic
+
+    const title = req.body.title;
+    const description = req.body.description;
+    const price = req.body.price;
+    const imageLink = req.body.imageLink;
+
+    const CourseObject = await Course.create({
+        title: title,
+        description: description,
+        price: price,
+        imageLink: imageLink
+    })
+
+    console.log(CourseObject)
+
+    res.status(200).json({
+        msg: "Course has been created",CourseId: CourseObject._id
+    })
 });
 
-router.get('/courses', adminMiddleware, (req, res) => {
+router.get('/courses', adminMiddleware, async (req, res) => {
     // Implement fetching all courses logic
+
+    const response = await Course.find({});
+    
+    res.status(200).json({
+        courses: response
+    })
+
 });
 
 module.exports = router;
