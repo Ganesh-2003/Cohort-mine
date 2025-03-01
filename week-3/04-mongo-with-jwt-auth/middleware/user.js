@@ -1,5 +1,5 @@
-const secret = require("../index");
 const jwt = require("jsonwebtoken");
+const { JWT_secret } = require("../config")
 
 function userMiddleware(req, res, next) {
     // Implement user auth logic
@@ -10,8 +10,9 @@ function userMiddleware(req, res, next) {
     const words = token.split(" ");
     const jwtToken = words[1];
 
-    const decodedValue = jwt.verify(jwtToken,secret);
+    const decodedValue = jwt.verify(jwtToken,JWT_secret);
     if(decodedValue.username){
+        req.username = decodedValue.username;
         next();
     }
     else{
