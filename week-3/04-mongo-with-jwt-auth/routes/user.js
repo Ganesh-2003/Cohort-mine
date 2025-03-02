@@ -74,7 +74,7 @@ router.get('/courses', userMiddleware, async (req, res) => {
 
 router.post('/courses/:courseId', userMiddleware, async (req, res) => {
     // Implement course purchase logic
-    const courseId = req.headers.courseId;
+    const courseId = req.params.courseId;
     const username = req.username;
 
     await User.updateOne({
@@ -96,7 +96,7 @@ router.get('/purchasedCourses', userMiddleware, async (req, res) => {
     const username = req.username;
 
     const user = await User.findOne({
-        username: req.headers.username
+        username: username
     })
 
     const courses = await Course.find({
