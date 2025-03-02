@@ -8,7 +8,7 @@
 <body>
     <div id="buttonParent">
     </div>
-    
+
     <script>
         let state = {
             count: 0
@@ -19,9 +19,10 @@
             ButtonComponentReRender();
         }
 
-        function buttonReRender(){
+        function ButtonComponentReRender(){
             document.getElementById("buttonParent").innerHTML = "";
             const component = ButtonComponent(state.count);
+            console.log(component)
             document.getElementById("buttonParent").appendChild(component);
         }
 
@@ -34,7 +35,7 @@
 
         }
 
-        buttonReRender();
+        ButtonComponentReRender();
 
     </script>
 </body>
