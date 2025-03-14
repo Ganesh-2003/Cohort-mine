@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const taskValidation = require("../backend/middleware")
 app.use(express.json());
 
 /* body{
@@ -9,8 +9,9 @@ app.use(express.json());
 }*/
 
 
-app.post("/todo",function (req,res){
+app.post("/todo",taskValidation,function (req,res){
     
+
 })
 
 app.get("/todos",function (req,res) {
