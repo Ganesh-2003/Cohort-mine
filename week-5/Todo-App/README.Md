@@ -9,3 +9,11 @@ It has the following features -
 
  //Intialize a Node Project
  //put a package.json
+
+
+ User must send parameters in body
+
+ body {
+    title: string
+    description : string
+ }
