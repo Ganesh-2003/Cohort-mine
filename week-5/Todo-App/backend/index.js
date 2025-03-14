@@ -28,8 +28,6 @@ app.post("/todo", function (req,res){
     }
     //put it in mongoDB
 
-
-
 })
 
 app.get("/todos",function (req,res) {
