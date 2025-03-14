@@ -25,6 +25,26 @@ function taskValidation(req,res,next) {
     }
 }
 
+function idValidation(req,res,next) {
 
-module.exports = taskValidation;
+    try{
+        const id = req.body.id;
 
+        const updateValidation = updateTodo.parse({
+            id: id
+        })   
+
+        console.log(updateValidation);
+        next();
+    }
+    catch(error){
+        res.status(404).json({
+            error: error
+        })
+    }
+}
+
+module.exports = {
+    taskValidation,
+    idValidation
+}

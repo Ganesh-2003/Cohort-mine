@@ -1,6 +1,7 @@
+const zod = require("zod")
 const express = require("express");
 const app = express();
-const taskValidation = require("../backend/middleware")
+const createTodo = require("../backend/types");
 app.use(express.json());
 
 /* body{
@@ -9,8 +10,25 @@ app.use(express.json());
 }*/
 
 
-app.post("/todo",taskValidation,function (req,res){
+app.post("/todo", function (req,res){
     
+    const createPayload = req.body;
+    const parsedPayload = createTodo.parse(createPayload);
+
+    if(!parsedPayload.success) {
+        res.status(404).json({
+            msg: "Wrong Inputs"  
+        })
+        return;
+    }
+    else{
+        res.status(200).json({
+            msg: "Validation Successfull"
+        })
+    }
+    //put it in mongoDB
+
+
 
 })
 
@@ -18,7 +36,7 @@ app.get("/todos",function (req,res) {
 
 })
 
-app.put("/completed",function(req,res) {
+app.put("/completed",idValidation,function(req,res) {
 
 })
 
