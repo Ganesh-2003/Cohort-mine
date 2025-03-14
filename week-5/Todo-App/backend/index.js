@@ -24,20 +24,18 @@ app.post("/todo", async function (req,res){
         return;
     }
     else{
+        await todo.create({
+            title: createPayload.title,
+            description: createPayload.description,
+            Completed: false
+        })
+    
         res.status(200).json({
-            msg: "Validation Successfull"
+            msg: "Todo Created Successfully"
         })
     }
     //put it in mongoDB
-    await todo.create({
-        title: createPayload.title,
-        description: createPayload.description,
-        Completed: false
-    })
-
-    res.json({
-        msg: "Todo Created Successfully"
-    })
+    
 
 })
 
@@ -57,16 +55,21 @@ app.put("/completed", async function(req,res) {
     const idValidation = updateTodo.safeParse(id);
 
     if(!idValidation.success) {
+        console.log(idValidation);
         res.json({
             msg: "Invalid ID provided"
         })
         return ;
     }
     else { // Mark it as complete in MongoDb
-        await todo.update({
+        await todo.updateOne({
             _id: req.body.id  
         },{
-            completed: true
+            Completed: true
+        })
+
+        res.status(200).json({
+            msg: "Task Marked as Completed"
         })
     }
 })
