@@ -1,4 +1,3 @@
-import { application, json } from "express"
 import {useState} from "react"
 
 export function CreateTodo(){
@@ -7,21 +6,21 @@ export function CreateTodo(){
     const [description, setDescription] = useState("")
 
 
-    return ( <div>
+    return <div>
         
         <input style={({
             padding: 10,
             margin: 10
         })} type="text" placeholder="Title" onChange={function(e) {
             const value = e.target.value;
-            setTitle(value);
+            setTitle(e.target.value);
         }}> </input> <br/>
         <input style={({
             padding: 10,
             margin: 10
         })} type="text" placeholder="Description" onChange = { function(e) {
             const value = e.target.value;
-            setDescription(value);
+            setDescription(e.target.value);
         }}> </input> <br/>
         
         <button style = {({
@@ -29,18 +28,24 @@ export function CreateTodo(){
             margin: 10
         })} onClick={()=>{
 
-            fetch("http://localhost:3000/todo"), { 
+            fetch("http://localhost:3000/todo", { 
                 method :"POST",
                 body: JSON.stringify({
                     title: title,
                     description: description
                 }),
                 headers: {
-                    "contentType": "application/json"
+                     "Content-Type": "application/json"
                 }
             }
-
-            }}> Add a Todo </button>
+        ).then(async function(res){
+            const json = await res.json();
+            alert("Todo Added")
+        })}
+    }
+    > 
+    Add a Todo 
+    
+    </button>
     </div>
-    )
 }
