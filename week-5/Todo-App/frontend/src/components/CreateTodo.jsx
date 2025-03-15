@@ -17,9 +17,8 @@ export function CreateTodo() {
           const value = e.target.value;
           setTitle(e.target.value);
         }}
-      >
-        {" "}
-      </input>{" "}
+      />
+       
       <br />
       <input
         style={{
@@ -32,9 +31,8 @@ export function CreateTodo() {
           const value = e.target.value;
           setDescription(e.target.value);
         }}
-      >
-        {" "}
-      </input>{" "}
+      />
+      
       <br />
       <button
         style={{

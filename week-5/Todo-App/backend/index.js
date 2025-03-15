@@ -2,9 +2,12 @@ const express = require("express");
 const { createTodo } = require("../backend/types");
 const { updateTodo } = require("../backend/types");
 const { todo } = require("../backend/db")
+const cors = require("cors");
 
 const app =  express();
+
 app.use(express.json());
+app.use(cors());
 
 /* body{
     title : string
