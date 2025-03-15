@@ -5,12 +5,12 @@ import { Todos } from './components/Todos'
 
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todo, setTodos] = useState([]);
 
   return (
     <div>      
       <CreateTodo/>
-      <Todos todos={todos}></Todos>
+      <Todos todos={todo}></Todos>
     </div>
   )
 }
