@@ -5,17 +5,17 @@ import './App.css'
 
 function App() {
 
-
   return (
     <div>
-
+      <Header title="Ganesh1">Hi Ganes</Header>
+      <Header title="Ganesh2"></Header>
     </div>
   )
 }
 
-function Header( {title} ) {
+function Header( props  ) {
   return <div>
-    {title}
+    {props.title}
   </div>
 }
 
