@@ -3,8 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { set } from 'mongoose'
-
-
+import React from 'react'
+/*
 function App() {
 
   return (
@@ -38,7 +38,7 @@ function Header(props) {
     {props.title}
   </div>
 }
-
+*/
 
 // function App() {
 
@@ -61,5 +61,30 @@ function Header(props) {
 //   )
 // }
 
+
+function App() {
+  const [title,setTitle] = useState("My Name is Ganesh")
+
+  function updateTitle() {
+    setTitle("My Name is " + Math.random().toString());
+  }
+
+  return <div>
+
+  <button onClick={updateTitle}> Click here to Change</button>
+  <Header title = {title}> </Header>
+  <Header title="Ganesh2"> </Header>
+  <Header title="Ganesh3"> </Header>
+  <Header title="Ganesh4"> </Header>
+  <Header title="Ganesh5"> </Header>
+  <Header title="Ganesh6"> </Header>
+  </div>
+}
+
+const Header = React.memo(function Header({title}){
+  return <div>
+    {title}
+  </div>
+})
 
 export default App
