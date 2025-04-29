@@ -5,3 +5,24 @@ mongodb+srv://ganeshpuppala:Ganesh2003@cluster0.ga8zi.mongodb.net/
 PostGres
 
 postgresql://test_owner:7CobqYj4RgLl@ep-broad-frog-a5pb5xxy.us-east-2.aws.neon.tech/test?sslmode=require
+
+
+\resumeSubheading
+{Fiserv}{November 2024 -- Present}
+{\hspace{1mm} \textit{Software Developer | .NET, SQL, Java (Automation), Agile Development}}{Noida, India}
+\resumeItemListStart
+\vspace{0.1cm}
+    \resumeItem{Developing and maintaining financial applications using \textbf{.NET technologies} (\textbf{VB.NET}, \textbf{C#}) and \textbf{SQL}, focused on improving backend systems and operational workflows.}
+    \smallskip
+
+    \resumeItem{Built and enhanced internal tools using \textbf{ASP.NET Web Forms} for efficient data management and system integration.}
+    \smallskip
+
+    \resumeItem{Developed and maintained \textbf{Selenium automation scripts} for regression testing of financial products, utilizing \textbf{Java} and \textbf{TestNG}.}
+    \smallskip
+
+    \resumeItem{Participated in \textbf{Agile Scrum} ceremonies, collaborated with cross-functional teams, and contributed to continuous integration workflows using \textbf{GitLab}.}
+    \smallskip
+
+    \resumeItem{Documented system flows, technical specifications, and API usage guidelines to support ongoing development and team onboarding.}
+\resumeItemListEnd
